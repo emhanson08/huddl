@@ -4,3 +4,6 @@ rvm:
 cache: bundler
 sudo: false
 before_script: bundle exec rake db:create db:migrate
+notifications:
+  email:
+  - jaredschil@gmail.com
