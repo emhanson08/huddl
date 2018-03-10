@@ -1,15 +1,22 @@
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Aladin|Delius+Swash+Caps|Short+Stack|Shrikhand');
+
+.flex-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .huddl-logo {
-  text-align: center;
-  color: white;
+  color: #ffff66;
   font-size: 100px;
+  font-family: 'Shrikhand', cursive;
 }
 
 html, body {
-  height: 100%;
+  width: 99.5%;
   margin: 0;
   padding: 0;
-  width: 100%;
-  background-color: black;
+  background: radial-gradient(#2278a3, #285f92, #254487, #311b76, #220765, black 70%);
 }
