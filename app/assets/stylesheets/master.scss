@@ -1,22 +1,77 @@
 @import "bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Aladin|Delius+Swash+Caps|Short+Stack|Shrikhand');
 
-.flex-container {
+.booyah-box {
+  -moz-box-shadow: 1px 1px 2px 0 #968f7c;
+  -webkit-box-shadow: 1px 1px 2px 0 #968f7c;
+  box-shadow: 1px 1px 2px 0 #968f7c;
+  background: #292b2c;
+  border: 1px solid #ccc;
+  border-color: #8e8b86;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  padding: 20px;
+  color: #8e8b86;
+}
+
+
+.huddl-logo {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.huddl-logo {
   color: #ffff66;
   font-size: 100px;
   font-family: 'Shrikhand', cursive;
+  margin: 0;
 }
 
-html, body {
-  width: 99.5%;
-  margin: 0;
-  padding: 0;
-  background: radial-gradient(#2278a3, #285f92, #254487, #311b76, #220765, black 70%);
+
+.navbar-brand {
+ float: left;
+ background: radial-gradient(gray, black);
+ padding: 7px;
+ margin: 0 30px;
+ border-radius: 50px;
 }
+
+.icon {
+  height: auto;
+  width: auto;
+  max-height: 50px;
+  max-width: 50px;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #ffff66;
+}
+
+li {
+  margin: 10px;
+}
+
+ul {
+  list-style-type: none;
+  color: white;
+}
+
+.navbar-left {
+  display: flex;
+  justify-content: left;
+  align-items: start;
+}
+
+html{
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  min-width: 100%;
+  min-height: 100%;
+  background: radial-gradient(#2278a3, #285f92, #254487, #311b76, #220765, black 70%);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+

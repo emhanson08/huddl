@@ -9,19 +9,22 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <a class="navbar-brand" href="#">HuddL</a>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="#">Features</a>
-          <a class="nav-item nav-link" href="#">Pricing</a>
-          <a class="nav-item nav-link disabled" href="#">Disabled</a>
-        </div>
-      </div>
+    <nav class='nav navbar fixed-top navbar-expand'>
+      <a href='/' class='navbar-brand'><%= image_tag('penguin.png', :alt => 'penguin', class: 'icon') %></a>
+      <ul class='navbar-nav mr-auto mt-2 mt-md-0'>
+        <li class='nav-item'>New Chat</li>
+        <li class='nav-item'>My Chats</li>
+        <li class='nav-item'>About</li>
+      </ul>
+      <ul class='navbar-nav'>
+        <% if !user_signed_in? %>
+          <li class='nav-item'><%= link_to 'Sign In', new_user_session_path %></li>
+          <li class='nav-item'><%= link_to 'Sign Up', new_user_registration_path %></li>
+        <% else %>
+          <li class='nav-item'><%= link_to 'My Profile', user_path(current_user) %></li>
+          <li class='nav-item'><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+        <% end %>
+      </ul>
     </nav>
 
     <% if notice.present? %>
