@@ -1,0 +1,10 @@
+<h1 class="my-chats-title" align="center">My Chats</h1>
+
+<div class="booyah-box col-4 offset-4">
+  <% @chats.each do |chat| %>
+    <div align="center">
+      <%= link_to chat.id, chat_path(chat) %>
+      <br />
+    </div>
+  <% end %>
+</div>
