@@ -17,7 +17,7 @@ RSpec.describe ChatsController, type: :controller do
       expect(response).to have_http_status(:success)
     end
 
-    it "should not allow a new chat if the user isn\'t signed in" do
+    it "should not allow a new chat if the user isn't signed in" do
       get :new
       expect(response).to redirect_to new_user_session_path
     end
@@ -33,7 +33,7 @@ RSpec.describe ChatsController, type: :controller do
       expect(response).to redirect_to chat_path(chat)
     end
 
-    it "shouldn\'t allow a chat to be created unless the user is signed in" do
+    it "shouldn't allow a chat to be created unless the user is signed in" do
       post :create
       expect(response).to redirect_to new_user_session_path
     end

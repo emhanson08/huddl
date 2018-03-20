@@ -22,10 +22,4 @@ class ChatsController < ApplicationController
     @chat = Chat.find_by_id(params[:id])
   end
 
-  private
-
-  def chat_params
-    params.require(:chat)
-  end
-
 end
