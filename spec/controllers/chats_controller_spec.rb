@@ -2,6 +2,13 @@ require 'rails_helper'
 
 RSpec.describe ChatsController, type: :controller do
 
+  describe "chats#index action" do
+    it "should render the chats index" do
+      get :index
+      expect(response).to have_http_status(:success)
+    end
+  end
+
   describe "chats#new action" do
     it "should show the chat form" do
       user = FactoryBot.create(:user)
@@ -28,6 +35,25 @@ RSpec.describe ChatsController, type: :controller do
 
     it "shouldn\'t allow a chat to be created unless the user is signed in" do
       post :create
+      expect(response).to redirect_to new_user_session_path
+    end
+  end
+
+  describe "chats#show action" do
+    it "should render the chat if the user is signed in" do
+      user = FactoryBot.create(:user)
+      sign_in user
+      chat = user.chats.create
+      get :show, params: {id: chat.id}
+      expect(response).to have_http_status(:success)
+    end
+
+    it "should redirect_to user sign-in page if the user isn't logged in" do
+      user = FactoryBot.create(:user)
+      sign_in user
+      chat = user.chats.create
+      sign_out user
+      get :show, params: {id: chat.id}
       expect(response).to redirect_to new_user_session_path
     end
   end
