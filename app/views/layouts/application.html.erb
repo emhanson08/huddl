@@ -12,17 +12,17 @@
     <nav class='nav navbar navbar-expand'>
       <a href='/' class='navbar-brand'><%= image_tag('penguin.png', :alt => 'penguin', class: 'icon') %></a>
       <ul class='navbar-nav mr-auto mt-2 mt-md-0'>
-        <li class='nav-item'><%= link_to 'New Chat', chats_path, method: :post %></li>
-        <li class='nav-item'><%= link_to 'My Chats', chats_path %></li>
-        <li class='nav-item'>About</li>
+        <li class='nav-item nav-item-link'><%= link_to 'New Chat', chats_path, method: :post %></li>
+        <li class='nav-item nav-item-link'><%= link_to 'My Chats', chats_path %></li>
+        <li class='nav-item nav-item-link'>About</li>
       </ul>
       <ul class='navbar-nav'>
         <% if !user_signed_in? %>
-          <li class='nav-item'><%= link_to 'Sign In', new_user_session_path %></li>
-          <li class='nav-item'><%= link_to 'Sign Up', new_user_registration_path %></li>
+          <li class='nav-item nav-item-link'><%= link_to 'Sign In', new_user_session_path %></li>
+          <li class='nav-item nav-item-link'><%= link_to 'Sign Up', new_user_registration_path %></li>
         <% else %>
-          <li class='nav-item'><%= link_to 'My Profile', user_path(current_user) %></li>
-          <li class='nav-item'><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+          <li class='nav-item nav-item-link'><%= link_to 'My Profile', user_path(current_user) %></li>
+          <li class='nav-item nav-item-link'><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         <% end %>
       </ul>
     </nav>
