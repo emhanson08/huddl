@@ -1,5 +1,5 @@
 class ChatsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :show]
+  before_action :authenticate_user!, only: [:new, :create, :show, :update]
 
   def index
     @chats = Chat.all
@@ -20,6 +20,19 @@ class ChatsController < ApplicationController
 
   def show
     @chat = Chat.find_by_id(params[:id])
+  end
+
+  def update
+    @chat = Chat.find_by_id(params[:id])
+    @chat.chat_log.push(chat_params)
+    @chat.save
+    redirect_to chat_path(@chat)
+  end
+
+  private
+
+  def chat_params
+    params.require(:chat).permit(:chat_log)
   end
 
 end

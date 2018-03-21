@@ -57,4 +57,16 @@ RSpec.describe ChatsController, type: :controller do
       expect(response).to redirect_to new_user_session_path
     end
   end
+
+  describe "chats#update action" do
+    xit "should update the chat log with the submitted text" do
+      user = FactoryBot.create(:user)
+      sign_in user
+      chat = user.chats.create
+      patch :update, params: { id: chat.id, chat: { chat_log: 'Hello World' } }
+      chat.reload
+      expect(chat.chat_log).to eq('Hello World')
+      expect(response).to redirect_to chat_path(chat)
+    end
+  end
 end
