@@ -24,8 +24,9 @@ class ChatsController < ApplicationController
 
   def update
     @chat = Chat.find_by_id(params[:id])
-    @chat.chat_log.push(chat_params)
-    @chat.save
+    array = @chat.chat_log
+    array.push(chat_params[:chat_log])
+    @chat.update_attributes(chat_log: array)
     redirect_to chat_path(@chat)
   end
 
