@@ -65,7 +65,7 @@ RSpec.describe ChatsController, type: :controller do
       chat = user.chats.create
       patch :update, params: { id: chat.id, chat: { chat_log: 'Hello World' } }
       chat.reload
-      expect(chat.chat_log).to eq(['Hello World'])
+      expect(chat.chat_log).to eq([user.email + ': ' + 'Hello World'])
       expect(response).to redirect_to chat_path(chat)
     end
   end

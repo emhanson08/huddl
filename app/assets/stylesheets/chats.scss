@@ -3,11 +3,13 @@
 }
 
 .chat-box-log {
+  color: white;
   background-color: #2f323d;
   height: 65vh;
   border-radius: 40px;
   margin-top: 10px;
   margin-bottom: 10px;
+  overflow-y: scroll;
 }
 
 .chat-box-input {
