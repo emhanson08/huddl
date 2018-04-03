@@ -1,1 +1,15 @@
-<h1>It's a chat</h1>
+<div class='chat-box-log col-10 offset-1'>
+  <% @chat.chat_log.each do |message| %>
+    <%= message %>
+    <br \>
+  <% end %>
+</div>
+<div class='chat-box-input col-10 offset-1'>
+  <br />
+  <%= simple_form_for @chat do |f| %>
+    <%= f.input :chat_log, label: false, wrapper_html: { class: 'form-inline' } do %>
+      <%= f.input_field :chat_log, value: '', prepend: 'current_user.email', label: false, autofocus: true, class: 'input-box mr-auto' %>
+      <%= f.submit 'Send', class: 'btn btn-default' %>
+    <% end %>
+  <% end %>
+</div>
