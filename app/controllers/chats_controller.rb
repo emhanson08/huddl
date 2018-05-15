@@ -26,8 +26,12 @@ class ChatsController < ApplicationController
     @chat = Chat.find_by_id(params[:id])
     array = @chat.chat_log
     array.push(current_user.email + ': ' + chat_params[:chat_log])
-    @chat.update_attributes(chat_log: array)
-    redirect_to chat_path(@chat)
+    @chat.update(chat_log: array)
+    # redirect_to chat_path(@chat)
+    if @chat.save
+      ActionCable.server.broadcast "main_chat",
+                                    chat_log: @chat.chat_log
+    end
   end
 
   private
